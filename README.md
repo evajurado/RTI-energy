@@ -2,20 +2,30 @@
 
 1) Let's start by creating in Fabric an Eventstream artifact with a Custom Endpoint Source and a Eventhouse as an output:
 <img width="1547" height="329" alt="image" src="https://github.com/user-attachments/assets/df6e306f-fc08-43e7-a9da-f871d0fb9819" />
+
 2) Copy the connection string-primary key from the Custom Endpoint Source, we are going to use it later:
 <img width="745" height="515" alt="image" src="https://github.com/user-attachments/assets/4cba1d64-98b9-4a39-909d-b479b59773d7" />
+
 3) In the Eventhouse configuration, use the following details:
 <img width="1011" height="939" alt="image" src="https://github.com/user-attachments/assets/7ef32c3a-ac4d-4222-a22c-4ca1d1f23e67" />
+
 4) In the Eventhouse there is a KQL database with a table where all the data is loaded (RTI_Energy_table):
 <img width="1910" height="789" alt="image" src="https://github.com/user-attachments/assets/0a5c3b70-d41c-47b3-9416-b1ff28000214" />
+
 5) We are going to create a cleaned version of it, to do that, copy the KQL query stored in the repo in the RTI_Energy_EH_queryset:
 <img width="569" height="365" alt="image" src="https://github.com/user-attachments/assets/e66a3dd0-5766-48ca-8576-c15bac6d7557" />
+
 6) Execute the query and you will get a new table RTI_Energy_Stream. 
+
 7) To start the real-time input stream, open the notebook RTI_Energy_NB.ipynb (stored in this repo) in Fabric and edit in the second cell of the notebook the EVENT_HUB_CONNECTION_STRING value, paste there the connection string-priamry key you have saved in step 2.
+
 8) Execute the whole notebook and it will send fake input data to your Eventstream.
+
 9) You can go to the Eventhouse or the KQL database to see how the tables fill with new data.
+
 10) Go to RTI_Energy_EH_queryset and create a new tab to generate queries for a new Dashboard. For every query, paste the KQL code and select Save to Dashboard. First time, select "To an new Dashboard" and create the artifact, the following queries, select "To an existing Dashboard".
 <img width="1193" height="354" alt="image" src="https://github.com/user-attachments/assets/26903670-9818-400c-b03f-76eaa6e0eec4" />
+
 10.1) Query 1:
     RTI_Energy_Stream
 | summarize TotalSales = sum(generated_kwh) by bin(timestamp, 1m)
