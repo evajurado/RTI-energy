@@ -107,6 +107,6 @@ substations_ts
 | render timechart 
     with (title="Substation Generation Trends", xtitle="Time", ytitle="(kWh)")
 
-YOu can add more queries as you wish to configure this dashboard, this is just a suggestion that will allow you to track main parameters. 
+You can add more queries as you wish to configure this dashboard, this is just a suggestion that will allow you to track main parameters. 
 
    
