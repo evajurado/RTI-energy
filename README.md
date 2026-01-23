@@ -22,7 +22,8 @@
 | where timestamp > ago(1h)
 | render timechart 
     with (title="Total Generated kWh Trend", xtitle="Time", ytitle="Generated kWh")
-10.2 Query 2:
+
+10.2) Query 2:
     let MinTime = toscalar(
     RTI_Energy_Stream
     | where substation_id in ("SUB_007")
@@ -64,15 +65,18 @@ substations_ts
         ytitle="Energy Generated (kWh)",
         series=substation_name
     )
+
 10.3) Query 3:
     RTI_Energy_Stream
 | where timestamp > ago(1h)
 | summarize Generated = sum(generated_kwh) by energy_type
 | render piechart 
     with (title="Energy type Generation Trends")
+
 10.4) Query 4:
     RTI_Energy_Stream
 | count
+
 10.5) Query 5:
     RTI_Energy_Stream
 | summarize 
@@ -85,6 +89,7 @@ substations_ts
     Generated
 | render scatterchart 
     with (kind=map, title="Energy Location")
+
 10.6) Query 6:
     RTI_Energy_Stream
 | where timestamp > ago(1h)
