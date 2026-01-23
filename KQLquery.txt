@@ -1,0 +1,36 @@
+// 2. Create the table
+.create table RTI_Energy_Stream (
+    timestamp: datetime,
+    substation_id: string,
+    substation_name: string,
+    energy_type: string,
+    generated_kwh: real,
+    efficiency_percent: real,
+    ambient_temperature_c: real,
+    status: string,
+    grid_voltage_kv: real
+)
+
+// 3. Create the function
+.create-or-alter function RTI_Energy_Transform() {
+    RTI_Energy_Table
+    | extend timestamp = todatetime(timestamp)
+    | project 
+        timestamp,
+        substation_id,
+        substation_name,
+        energy_type,
+        generated_kwh,
+        efficiency_percent,
+        ambient_temperature_c,
+        status, 
+        grid_voltage_kv
+}
+
+// 4. Create the update policy
+.alter table RTI_Energy_Stream policy update 
+@'[{"Source": "RTI_Energy_Table", "Query": "RTI_Energy_Transform()", "IsEnabled": true, "IsTransactional": true}]'
+
+
+RTI_Energy_Stream
+| take 10
