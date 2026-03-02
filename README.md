@@ -110,6 +110,36 @@ substations_ts
 You can add more queries as you wish to configure this dashboard, this is just a suggestion that will allow you to track main parameters. 
 
 Example dashboard output:
-<img alt="image" src="https://github.com/evajurado/RTI-energy/dashboard.png" />
+<img width="2393" height="1168" alt="image" src="https://github.com/user-attachments/assets/01b97df1-6083-425d-a800-cf9ea6b1c965" />
 
-   
+11) Once the real-time data is ready, we are going to create an ontology to consume the real-time data together with the static data. (The static data was created at the notebook execution from cell three and it is stored in a lakehouse). The ontology is going to have seven entities: Substation, Regulation, Equipment, Maintenance, Weather Station, Technician and Regulation Detail.
+The following screenshot shows the semantic model of the data.
+<img width="936" height="404" alt="image" src="https://github.com/user-attachments/assets/74f2d1a0-cce7-49b4-bc71-9a845c7a0d7d" />
+You have to create first the semantic model, and then the ontology with the "Generate Ontology" button available inside the semantic model artifact.
+<img width="264" height="77" alt="image" src="https://github.com/user-attachments/assets/74244155-277e-4f7a-a5e7-60d7c207f4a1" />
+
+12) The real-time data is going to be linked to the Substation entity, for doing that we need to add it as a binding:
+<img width="2368" height="1218" alt="image" src="https://github.com/user-attachments/assets/df61c8ea-e77b-47eb-a0b5-c4d2528fc38d" />
+
+13) If you click on Entity type overview, you can see the details of that specific entity:
+<img width="242" height="49" alt="image" src="https://github.com/user-attachments/assets/5c9af3de-355c-455a-8777-ea158667234e" />
+<img width="2360" height="1113" alt="image" src="https://github.com/user-attachments/assets/76983ae6-90e7-444f-9bc1-1d83b91ff408" />
+
+14) As when creating an ontology there is always a graph underneath, if we open it, we can see the whole model:
+<img width="2366" height="1044" alt="image" src="https://github.com/user-attachments/assets/057bcad9-ace0-4ba3-849f-380af6505902" />
+
+15) To query the data using the graphs, we navigate to the left pane and select query and select all the relationships (edges) at the right side under Components:
+<img width="2347" height="898" alt="image" src="https://github.com/user-attachments/assets/c558b79d-e52d-4e4b-ab48-954e4f64b5cd" />
+
+16) When running the query, we can see the cloud of data we have in our ontology:
+<img width="1186" height="1000" alt="image" src="https://github.com/user-attachments/assets/695b0acd-7e23-4cda-8a73-dd1da23edf14" />
+
+17) By clicking in every node, you can see its properties:
+<img width="1512" height="743" alt="image" src="https://github.com/user-attachments/assets/f1fae4ca-13e3-48d1-825a-29fc025f4b0d" />
+
+18) Consuming the ontology data is also possible in a more friendly way in natural language with data agents. We can create one which only data source is the ontology and we can interact with it easily.
+<img width="2380" height="1204" alt="image" src="https://github.com/user-attachments/assets/d51e5c30-e4ef-40c6-ae64-16109f0d1500" />
+
+
+
+
