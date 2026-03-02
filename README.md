@@ -17,9 +17,9 @@
 
 6) Execute the query and you will get a new table RTI_Energy_Stream. 
 
-7) To start the real-time input stream, open the notebook RTI_Energy_NB.ipynb (stored in this repo) in Fabric and edit in the second cell of the notebook the EVENT_HUB_CONNECTION_STRING value, paste there the connection string-priamry key you have saved in step 2.
+7) To start the real-time input stream, open the notebook energy_NB.ipynb (stored in this repo) in Fabric and edit in the second cell of the notebook the EVENT_HUB_CONNECTION_STRING value, paste there the connection string-priamry key you have saved in step 2.
 
-8) Execute the whole notebook and it will send fake input data to your Eventstream.
+8) Execute the whole notebook and it will send fake input data to your Eventstream. If you stop it and you want to relaunch again, you only need to execute the first two cells. 
 
 9) You can go to the Eventhouse or the KQL database to see how the tables fill with new data.
 
@@ -108,5 +108,8 @@ substations_ts
     with (title="Substation Generation Trends", xtitle="Time", ytitle="(kWh)")
 
 You can add more queries as you wish to configure this dashboard, this is just a suggestion that will allow you to track main parameters. 
+
+Example dashboard output:
+<img alt="image" src="https://github.com/evajurado/RTI-energy/dashboard.png" />
 
    
