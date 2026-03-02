@@ -140,6 +140,25 @@ You have to create first the semantic model, and then the ontology with the "Gen
 18) Consuming the ontology data is also possible in a more friendly way in natural language with data agents. We can create one which only data source is the ontology and we can interact with it easily.
 <img width="2380" height="1204" alt="image" src="https://github.com/user-attachments/assets/d51e5c30-e4ef-40c6-ae64-16109f0d1500" />
 
+19) To get the best out of the data, we are going to use the anomaly detector artifact in Fabric. Once you create it, you connect it to your data (right pane):
+Data: RTI_Energy_Stream (table in KQL database)
+Value to watch: generated_kwh
+Group_by: substation_name
+Timestamp: timestamp
+<img width="2360" height="1321" alt="image" src="https://github.com/user-attachments/assets/da034ac5-b808-45ca-95cd-f7359ae4acf7" />
+You can customize the detector by selecting the model that best suits your needs and its confidence:
+<img width="818" height="894" alt="image" src="https://github.com/user-attachments/assets/4150d392-a0aa-4834-a95e-d1d5afb0b73c" />
+You can also filter and choose the instances (substations) you want to watch, no need to visualize everything:
+<img width="2341" height="1194" alt="image" src="https://github.com/user-attachments/assets/c3b0ae19-c78a-47ad-9d16-aa4a620b67c9" />
+
+20) Bonus check: let's finish with a Map that locates the subtations, the repairing offices and how the technician's trucks move from the repairing offices to the substations:
+Substations and repairing offices:
+<img width="2075" height="1124" alt="image" src="https://github.com/user-attachments/assets/341c8638-51b1-4662-a641-5b4c5d218701" />
++ trucks data:
+<img width="2152" height="1148" alt="image" src="https://github.com/user-attachments/assets/d4a10130-9818-4556-b750-bbba03ae60b5" />
+
+To generate the trucks' data, there is an additional notebook in the repo: Trucks_NB. It follows the same RTI logic to generate the content. 
+
 
 
 
